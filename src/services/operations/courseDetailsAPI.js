@@ -1,7 +1,7 @@
 import { toast } from "react-hot-toast";
 
 import { updateCompletedLectures } from "../../slices/viewCourseSlice";
-import { setLoading } from "../../slices/profileSlice";
+
 import { apiConnector } from "../apiConnector";
 import { courseEndpoints } from "../apis";
 
@@ -42,7 +42,7 @@ export const getAllCourses = async () => {
 
 export const fetchCourseDetails = async (courseId) => {
   const toastId = toast.loading("Loading...");
-  dispatch(setLoading(true));
+  
   let result = null;
   try {
     const response = await apiConnector("POST", COURSE_DETAILS_API, {
@@ -58,7 +58,7 @@ export const fetchCourseDetails = async (courseId) => {
     toast.error(error.response.data.message);
   }
   toast.dismiss(toastId);
-  dispatch(setLoading(false));
+
   return result;
 };
 
@@ -123,26 +123,7 @@ export const editCourseDetails = async (data, token) => {
 };
 
 
-export const addCategory = async (data, token) => {
-  let result = null;
-  const toastId = toast.loading("Loading...");
-  try {
-    const response = await apiConnector("POST", ADD_CATEGORIES_API, data, {
-      "Content-Type": "multipart/form-data",
-      Authorization: `Bearer ${token}`,
-    });
 
-    if (!response?.data?.success) {
-      throw new Error("Could Not Add New Category");
-    }
-    toast.success("Category added Successfully");
-    result = response?.data?.data;
-  } catch (error) {
-    toast.error(error.message);
-  }
-  toast.dismiss(toastId);
-  return result;
-};
 
 
 // create a section
@@ -316,7 +297,7 @@ export const deleteCourse = async (data, token) => {
 // get full details of a course
 export const getFullDetailsOfCourse = async (courseId, token) => {
   const toastId = toast.loading("Loading...");
-  dispatch(setLoading(true));
+
   let result = null;
   try {
     const response = await apiConnector(
@@ -339,7 +320,7 @@ export const getFullDetailsOfCourse = async (courseId, token) => {
     toast.error(error.response.data.message);
   }
   toast.dismiss(toastId);
-  dispatch(setLoading(false));
+
   return result;
 };
 
