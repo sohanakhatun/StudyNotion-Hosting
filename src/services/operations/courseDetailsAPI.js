@@ -42,7 +42,11 @@ export const getAllCourses = async () => {
 
 export const fetchCourseDetails = async (courseId) => {
   const toastId = toast.loading("Loading...");
+<<<<<<< HEAD
   
+=======
+ 
+>>>>>>> 9b04231436cdd6cc960607b65923e2d3f6500b23
   let result = null;
   try {
     const response = await apiConnector("POST", COURSE_DETAILS_API, {
@@ -58,7 +62,11 @@ export const fetchCourseDetails = async (courseId) => {
     toast.error(error.response.data.message);
   }
   toast.dismiss(toastId);
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 9b04231436cdd6cc960607b65923e2d3f6500b23
   return result;
 };
 
@@ -123,8 +131,11 @@ export const editCourseDetails = async (data, token) => {
 };
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 9b04231436cdd6cc960607b65923e2d3f6500b23
 
 // create a section
 export const createSection = async (data, token) => {
@@ -320,7 +331,11 @@ export const getFullDetailsOfCourse = async (courseId, token) => {
     toast.error(error.response.data.message);
   }
   toast.dismiss(toastId);
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 9b04231436cdd6cc960607b65923e2d3f6500b23
   return result;
 };
 
