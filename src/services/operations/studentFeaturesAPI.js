@@ -72,7 +72,7 @@ export async function buyCourse(
         currency: orderResponse.data.data.currency,
         amount: `${orderResponse.data.data.amount}`,
         order_id: orderResponse.data.data.id,
-        name: "SkilsStation",
+        name: "StudyNotion",
         description: "Thank you for Purchasing the Course.",
         image: rzpLogo,
         prefill: {
